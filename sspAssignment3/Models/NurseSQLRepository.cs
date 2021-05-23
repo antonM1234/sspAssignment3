@@ -7,58 +7,54 @@ namespace sspAssignment3.Models
 {
     public class NurseSQLRepository : INurseRepository
     {
-        private IEnumerable<Nurse> nurses;
-
-        public NurseSQLRepository()
+        
+        //This injection is used to access the CRUD methods in the DbContext class
+        private NurseDbContext context;
+        public NurseSQLRepository(NurseDbContext context)
         {
-            /*
-            nurses = new List<Nurse>()
-            {
-                new Nurse() { ID= 1, Name="aaa", Email="aaa@a.com", Section="first"},
-                new Nurse() { ID= 2, Name="bbb", Email="bbb@a.com", Section="Second"},
-                new Nurse() { ID= 3, Name="ccc", Email="ccc@a.com", Section="Third"}
-            };
-            */
+            this.context = context;
         }
 
         public Nurse GetNurse(int ID)
         {
-            return nurses.Where(e => e.ID == ID).FirstOrDefault();
+            return context.Nurses.Find(ID);
         }
 
         public IEnumerable<Nurse> ShowAllNurses()
         {
-            return nurses;
+            return context.Nurses;
         }
 
         //Add(Nurse n), Delete(int id) and Update(Nurse n) methods:
 
         public Nurse AddNurse(Nurse n) 
         {
-            n.ID = nurses.Max(e => e.ID) + 1;
-            ((List<Nurse>)nurses).Add(n);
+            
+            context.Nurses.Add(n);
+            context.SaveChanges();
             return n;
         }
         public Nurse DeleteNurse(int ID)
         {
-            Nurse n = nurses.FirstOrDefault(e => e.ID == ID);
-            if(n != null)
+            //Making sure the nurse we're deleting actually exists
+            Nurse n = context.Nurses.Find(ID);
+            
+            //Making sure we do not delete a null object
+            if (n != null)
             {
-                ((List<Nurse>)nurses).Remove(n);
+                context.Nurses.Remove(n); 
+                context.SaveChanges();
             }
             return n;
+
         }
 
         public Nurse UpdateNurse(Nurse n)
         {
-            Nurse nTemp = nurses.FirstOrDefault(e => e.ID == n.ID);
-            if (nTemp != null)
-            {
-                nTemp.Name = n.Name;
-                nTemp.Email = n.Email;
-                nTemp.Section = n.Section;
-            }
-            return nTemp;
+            var tempN = context.Nurses.Attach(n);
+            tempN.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.SaveChanges();
+            return n;
         }
 
     }
