@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using sspAssignment3.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,24 +10,44 @@ namespace sspAssignment3.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private INurseRepository repo;
+
+        public HomeController(INurseRepository repository)
         {
-            return View();
+            repo = repository;
+        }
+        public ActionResult Index()
+        {
+            IEnumerable<Nurse> nurses = repo.ShowAllNurses();
+            return View(nurses);
         }
 
-        public IActionResult nurseDetails()
+        public ActionResult nurseDetails(int ID)
         {
-            return View();
+            Nurse nurse = repo.GetNurse(ID);
+            return View(nurse);
         }
 
-        public ViewResult createdPage()
+        public ActionResult createdPage()
         {
             return View("Create");
         }
 
-        public ViewResult submitForm()
+        [HttpPost]
+        public ActionResult submitForm(Nurse n)
         {
-            return View();
+            if(ModelState.IsValid)
+            {
+                Nurse newNurse = new Nurse()
+                {
+                    Name = n.Name,
+                    Email = n.Email,
+                    Section = n.Section
+                };
+                repo.AddNurse(newNurse);
+                return RedirectToAction("NurseDetails", new { newNurse.ID });
+            }
+            return View("Create");
         }
     }
 }

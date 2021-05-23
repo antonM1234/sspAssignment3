@@ -26,7 +26,9 @@ namespace sspAssignment3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<INurseRepository, NurseSQLRepository>();
+
+            //Can't use AddSingleton here as it would throw an exception
+            services.AddScoped<INurseRepository, NurseSQLRepository>();
 
             //This is used to retrieve the connection string from appsettings.json
             services.AddDbContextPool<NurseDbContext>(options => options.UseSqlServer(config.GetConnectionString("NurseDBConnection")));

@@ -1,5 +1,27 @@
-﻿@model Nurse
+﻿@model IEnumerable<Nurse>
 
 @{ 
     ViewBag.Title = "Nurse List";
 }
+
+<div class=" card-deck">
+    @*This foreach loop used to dynamically print table rows and table data based on the
+        number of students in the list that was sent, and fill the cells with data *@
+    @foreach (var n in Model)
+    {
+        <div class="card m-3">
+
+            <div class="card-header">
+                <h3>@n.Name</h3>
+            </div>
+            <img class="card-img-top" src="~/images/DefaultNurse1.jpg" asp-append-version="true" />
+            <div class="card-footer text-center">
+                <a asp-controller="Home" asp-action="NurseDetails" asp-route-id="@n.ID" class="btn btn-primary">View</a>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+
+        </div>
+    }
+
+</div>
