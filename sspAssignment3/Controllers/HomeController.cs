@@ -20,7 +20,7 @@ namespace sspAssignment3.Controllers
 
         public ViewResult createdPage()
         {
-            return View();
+            return View("Create");
         }
 
         public ViewResult submitForm()

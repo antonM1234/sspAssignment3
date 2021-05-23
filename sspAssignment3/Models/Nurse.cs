@@ -10,6 +10,6 @@ namespace sspAssignment3.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
-        public string Section { get; set; }
+        public SectionEnum Section { get; set; }
     }
 }
