@@ -11,12 +11,14 @@ namespace sspAssignment3.Models
 
         public NurseSQLRepository()
         {
+            /*
             nurses = new List<Nurse>()
             {
                 new Nurse() { ID= 1, Name="aaa", Email="aaa@a.com", Section="first"},
                 new Nurse() { ID= 2, Name="bbb", Email="bbb@a.com", Section="Second"},
                 new Nurse() { ID= 3, Name="ccc", Email="ccc@a.com", Section="Third"}
             };
+            */
         }
 
         public Nurse GetNurse(int ID)
