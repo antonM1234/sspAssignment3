@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31313.79
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sspAssignment3", "sspAssignment3\sspAssignment3.csproj", "{B1FD8E36-39A1-41C4-B960-437ADB1ADC5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1FD8E36-39A1-41C4-B960-437ADB1ADC5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1FD8E36-39A1-41C4-B960-437ADB1ADC5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1FD8E36-39A1-41C4-B960-437ADB1ADC5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1FD8E36-39A1-41C4-B960-437ADB1ADC5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {552A4E1D-6F12-4900-A5D3-9EFD23F1AEA8}
+	EndGlobalSection
+EndGlobal
