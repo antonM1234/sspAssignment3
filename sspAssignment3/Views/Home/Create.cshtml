@@ -1,10 +1,10 @@
-﻿@model Nurse
+﻿@model NCVM
 
 @{ 
     ViewBag.Title = "Create Nurse";
 }
 
-<form asp-action="submitForm" asp-controller="Home" method="post" class="mt-3">
+<form enctype="multipart/form-data" asp-action="submitForm" asp-controller="Home" method="post" class="mt-3">
 
 
     <div class="form-group row">
@@ -33,6 +33,16 @@
                 <option value="">Please Select a Section</option><!--Default non-valid option used to tell the user to select a valid option-->
             </select>
             <span asp-validation-for="Section" class="text-danger"></span><!--This span is used to display an error message when the user leaves the field empty-->
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label asp-for="Photo" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <div class="custom-file">
+                <input asp-for="Photo" class="form-control custom-file-input" placeholder="Photo">
+                <span asp-validation-for="Photo" class="text-danger"></span><!--This span is used to display an error message when the user leaves the field empty-->
+            </div>
         </div>
     </div>
 
