@@ -9,12 +9,12 @@
         number of students in the list that was sent, and fill the cells with data *@
     @foreach (var n in Model)
     {
-    <div class="card m-3 mx-auto" style="min-width: 18rem; max-width: 30.5%;">
-        
-            <div class="card-header text-center">
+        <div class="card m-3">
+
+            <div class="card-header">
                 <h3>@n.Name</h3>
             </div>
-            <img class="card-img-top imageThumbnail" style="width: auto"; height: 200px;" src="~/images/DefaultNurse1.jpg" asp-append-version="true"/>
+            <img class="card-img-top" src="~/images/DefaultNurse1.jpg" asp-append-version="true" />
             <div class="card-footer text-center">
                 <a asp-controller="Home" asp-action="NurseDetails" asp-route-id="@n.ID" class="btn btn-primary">View</a>
                 <a href="#" class="btn btn-primary">Edit</a>
