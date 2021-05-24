@@ -1,4 +1,9 @@
 ﻿@model Nurse
+@{ 
+    ViewBag.Title = "Nurse Details";
+    string Path = "~/images/" + (Model.Photo ?? "DefaultNurse3.jpg");
+
+}
 
 <div class=" row justify-content-center" m-3>
     <div class=" col-sm-8">
@@ -7,7 +12,7 @@
                 <h1>@Model.Name</h1>
             </div>
             <div class=" card-body text-center">
-                <img class="card-img-top" src="~/images/DefaultNurse1.jpg" asp-append-version="true" />
+                <img class="card-img-top" src="@Path" asp-append-version="true" />
                 <h4>Nurse ID: @Model.ID</h4>
                 <h4>Nurse Email: @Model.Email</h4>
                 <h4>Nurse Section: @Model.Section</h4>

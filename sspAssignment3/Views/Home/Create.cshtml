@@ -53,5 +53,21 @@
     </div>
     <div asp-validation-summary="All" class="text-danger"></div> <!--A summary of all errors-->
 
+    @section imageTitle
+    {
+        <script>
+
+            //The purpose of this script is to display the name of the image in the upload element
+            $(document).ready(function () {
+                $('.custom-file-input').on("change", function () {
+                    var fileName = $(this).val().split("\\").pop();
+                    $(this).next('.custom-file-label').html(fileName);
+                });
+            });
+
+        </script>
+
+    }
+
 
 </form>

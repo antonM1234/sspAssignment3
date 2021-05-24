@@ -24,5 +24,8 @@ namespace sspAssignment3.Models
         [Required(ErrorMessage = "Please Select a Section")]
         public SectionEnum Section { get; set; }
 
+        //This property is needed to allow for photo uploading functionality when creating a Nurse
+        public string Photo { get; set; }
+
     }
 }

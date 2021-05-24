@@ -39,7 +39,9 @@
         </nav>
         <div>
             @RenderBody()
-        </div>       
+        </div>
+        @if (IsSectionDefined("imageTitle"))
+            @RenderSection("imageTitle", true)
     </div>
 </body>
 </html>
