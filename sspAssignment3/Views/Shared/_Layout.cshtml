@@ -41,6 +41,8 @@
         <div>
             @RenderBody()
         </div>
+        @if (IsSectionDefined("imageTitle"))
+            @RenderSection("imageTitle", true)
     </div>
 </body>
 </html>
