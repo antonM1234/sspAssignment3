@@ -4,24 +4,23 @@
     ViewBag.Title = "Nurse List";
 }
 
-<div class=" card-deck">
+<div class="card-deck">
     @*This foreach loop used to dynamically print table rows and table data based on the
         number of students in the list that was sent, and fill the cells with data *@
     @foreach (var n in Model)
     {
-        <div class="card m-3" style="width: 18rem;">
-
+    <div class="card m-3 mx-auto" style="min-width: 18rem; max-width: 30.5%;">
+        
             <div class="card-header text-center">
                 <h3>@n.Name</h3>
             </div>
-            <img class="card-img-top" src="~/images/DefaultNurse1.jpg" asp-append-version="true" style="width: 200px"/>
+            <img class="card-img-top imageThumbnail" style="width: auto"; height: 200px;" src="~/images/DefaultNurse1.jpg" asp-append-version="true"/>
             <div class="card-footer text-center">
                 <a asp-controller="Home" asp-action="NurseDetails" asp-route-id="@n.ID" class="btn btn-primary">View</a>
                 <a href="#" class="btn btn-primary">Edit</a>
                 <a href="#" class="btn btn-danger">Delete</a>
             </div>
-
-        </div>
+        
+    </div>
     }
-
 </div>
