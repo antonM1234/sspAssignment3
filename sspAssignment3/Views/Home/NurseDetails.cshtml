@@ -1,6 +1,8 @@
 ﻿@model Nurse
 @{ 
     ViewBag.Title = "Nurse Details";
+
+    //Specifying the path for the uploaded photo. If the user didn't upload one, use a default one instead.
     string Path = "~/images/" + (Model.Photo ?? "DefaultNurse3.jpg");
 
 }

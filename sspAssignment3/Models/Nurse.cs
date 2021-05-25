@@ -20,12 +20,12 @@ namespace sspAssignment3.Models
         ErrorMessage = "Please Enter a Valid Email Address")]//Regular expression for email validation
         public string Email { get; set; }
 
-        //This property is defined as enum since we assume we have a fixed number of sections
-        [Required(ErrorMessage = "Please Select a Section")]
-        public SectionEnum Section { get; set; }
+               
+        [Required(ErrorMessage = "Please Select a Section")]//Custom error message to provide the user with more details
+        public SectionEnum Section { get; set; }//This property is defined as enum since we assume we have a fixed number of sections
 
-        //This property is needed to allow for photo uploading functionality when creating a Nurse
-        public string Photo { get; set; }
+        
+        public string Photo { get; set; }//This property is needed to allow for photo uploading functionality when creating a Nurse
 
     }
 }

@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace sspAssignment3.Models
 {
+    //This class is absolutely crucial for database operations, since it is the one interacting with the database.
     public class NurseDbContext : DbContext
     {
-        
+        //Contains config info; Must be used for DB operations
         public NurseDbContext(DbContextOptions<NurseDbContext> options) : base(options)
         {
 
         }
 
-        //This property is needed for DB operations
+        //Needed for Nurse entity to do CRUD operations
         public DbSet<Nurse> Nurses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Creating a number of default Nurse objects, independent from user created ones
             modelBuilder.Entity<Nurse>().HasData(
                 new Nurse
                 {

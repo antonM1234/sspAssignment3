@@ -28,25 +28,22 @@ namespace sspAssignment3.Models
         //Add(Nurse n), Delete(int id) and Update(Nurse n) methods:
 
         public Nurse AddNurse(Nurse n) 
-        {
-            
+        {          
             context.Nurses.Add(n);
             context.SaveChanges();
             return n;
         }
         public Nurse DeleteNurse(int ID)
-        {
-            //Making sure the nurse we're deleting actually exists
+        {           
             Nurse n = context.Nurses.Find(ID);
             
-            //Making sure we do not delete a null object
+            //Making sure we do not delete a null object, by verifying that the Nurse actually exists
             if (n != null)
             {
                 context.Nurses.Remove(n); 
                 context.SaveChanges();
             }
             return n;
-
         }
 
         public Nurse UpdateNurse(Nurse n)
